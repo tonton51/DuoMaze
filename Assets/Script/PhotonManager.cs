@@ -5,10 +5,12 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
-public class PhotonMaster : MonoBehaviourPunCallbacks
+public class PhotonManager : MonoBehaviourPunCallbacks
 {
     // コメントアウトした部分はUIをテキスト表示する際に使うかもなので残しておく
     private const int MaxPlayerPerRoom = 2; // maxplayerの設定
+    // 押されたボタンの記録用
+    public static int buttonflag=0; // 0なら1人プレイ
     
     // 初期化メソッドstartより先
     private void Awake()
@@ -25,12 +27,18 @@ public class PhotonMaster : MonoBehaviourPunCallbacks
     //これをボタンにつける　FindOponentは作成したメソッド
     public void MatchStart()
     {
+        buttonflag=1;
         // photonに接続できたら
         if (PhotonNetwork.IsConnected)
         {
             // フィルタに一致するランダムなルームに参加
             PhotonNetwork.JoinRandomRoom();
         }
+    }
+    // 1人プレイ用
+    public void FPSstart(){
+        buttonflag=0;
+         SceneManager.LoadScene("GameScene");
     }
 
     
@@ -83,4 +91,8 @@ public class PhotonMaster : MonoBehaviourPunCallbacks
             }
         }
     }
+    void Update(){
+        // Debug.Log(buttonflag);
+    }
+     public static int getButtonflag() { return buttonflag; }
 }

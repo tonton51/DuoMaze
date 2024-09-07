@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Goal
   - Adviser
+  - AssistPoint
+  - FPSPlayer
   layers:
   - Default
   - TransparentFX
