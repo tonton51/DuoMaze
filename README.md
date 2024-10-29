@@ -1,4 +1,4 @@
-## 迷路の相棒  
+## 迷路の相棒（2人用）  
 **・ソースコード**  
 [Assets>Script](https://github.com/tonton51/DuoMaze/tree/main/Assets/Script)  
 **・プレイ動画**   
